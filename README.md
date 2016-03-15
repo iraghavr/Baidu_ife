@@ -25,7 +25,7 @@
 
 4.`<aside>`侧栏标签
 
-5.利用maxlength和minlength属性来控制input标签输入的最大长度及最小长度.
+5.利用 maxlength 和 minlength 属性来控制 input 标签输入的最大长度及最小长度.
 ```html
 <input type="password" minlength="6" maxlength="16"/>
 ```
