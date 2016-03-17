@@ -39,16 +39,27 @@ nav ul li a{
 nav ul li a:hover{
   color:gray;
 }
-article,aside{
+article{
   margin-top: 40px;
   background-color: #FFF;
   margin-left: 40px;
-  margin-right: 40px;
+  margin-right: 450px;
   padding: 20px;
   line-height: 1.5;
   margin-bottom: 20px;
   box-shadow: 2px 2px 2px #848484;
-  min-width: 300px;
+  min-width: 210px;
+}
+aside{
+  background: #fff;
+  position: absolute;
+  top:0;
+  right: 0;
+  width: 350px;
+  margin-top: 110px;
+  margin-right: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 2px #848484;
 }
 .color_gray{
   color: gray;
@@ -60,15 +71,13 @@ article,aside{
   list-style: none;
 }
 figure{
-  height:180px;
-  width: 240px;
+  height:115px;
+  width: 150px;
   border: 1px solid #aaa;
   text-align: center;
   padding-bottom: 10px;
   margin-bottom: 20px;
-}
-.tab{
-  height: 190px;
+  display: inline-block;
 }
 table{
   width: 100%;
@@ -83,12 +92,6 @@ thead{
 tfoot{
   background: #ccc;
 }
-tfoot{
-  font-weight: bold;
-}
-ol>li{
-  font-weight: bold;
-}
 .aside{
   padding-left: 10px;
   border-left: 3px #ccc solid;
@@ -100,6 +103,12 @@ form{
 form>div{
   margin: 10px 0;
 }
+tfoot{
+  font-weight: bold;
+}
+ol>li{
+  font-weight: bold;
+}
 .bot{
   vertical-align: bottom;
 }
@@ -107,7 +116,7 @@ form>div{
   width: 30%;
   text-align: right;
   display:inline-block;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-top: 10px;
   vertical-align: top;
   margin-bottom: 0px;
@@ -123,13 +132,14 @@ form>div{
 .demand{
   font-size: 13px;
   color: gray;
-  margin-left: 31.5%;
+  margin-left: 37.5%;
   margin-top: 10px;
 }
 textarea{
   margin-top: 10px;
   width: 50%;
   height: 100px;
+  margin-left: -7px;
 }
 input[type='submit']{
   width: 100%;
