@@ -83,6 +83,12 @@ thead{
 tfoot{
   background: #ccc;
 }
+tfoot{
+  font-weight: bold;
+}
+ol>li{
+  font-weight: bold;
+}
 .aside{
   padding-left: 10px;
   border-left: 3px #ccc solid;
