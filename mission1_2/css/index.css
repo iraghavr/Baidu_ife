@@ -1,4 +1,4 @@
-body{
+﻿body{
   font-family: "黑体";
   font-size: 14px;
   margin: 0px;
@@ -132,6 +132,7 @@ input[type='submit']{
   color: #fff;
   cursor: pointer;
   border-radius: 8px;
+  border:1px solid #3355D0;
   font-weight: 800;
 }
 footer{
