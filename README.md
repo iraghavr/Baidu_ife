@@ -21,7 +21,7 @@
   ```
 2.导航栏`<nav>`标签.
 
-3.`<time>`标签,`<article>`标签，`<header>`标签，以及`<figure>`标签等.
+3.`<time>`标签,`<article>`标签，`<header>`标签，以及`<figure>`,`<figcaption>`标签等.
 
 4.`<aside>`侧栏标签
 
