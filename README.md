@@ -19,18 +19,14 @@
     <dd>以视觉方式显示信息的装置 ... ...</dd>
   </dl>
   ```
-2.导航栏`<nav>`标签.
+2.Html5语义化标签的使用，如`<nav>`标签，`<aside>`标签，`<time>`标签,`<article>`标签，`<header>`标签，以及`<figure>`,`<figcaption>`标签等.
 
-3.`<time>`标签,`<article>`标签，`<header>`标签，以及`<figure>`,`<figcaption>`标签等.
-
-4.`<aside>`侧栏标签
-
-5.利用 maxlength 和 minlength 属性来控制 input 标签输入的最大长度及最小长度.
+3.利用 maxlength 和 minlength 属性来控制 input 标签输入的最大长度及最小长度.
 ```html
 <input type="password" minlength="6" maxlength="16"/>
 ```
 
-6.利用pattern属性匹配正则表达式来验证输入格式.
+4.利用pattern属性匹配正则表达式来验证输入格式.
 ```html
 <input type="password" pattern="[A-Za-z0-9\-]*" placeholder="这是一个只能输入英文字母和数字的密码输入框"/>
 ```
