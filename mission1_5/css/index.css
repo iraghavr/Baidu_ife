@@ -4,6 +4,7 @@
   margin: 0px;
   border: 0px;
   background: #DEDEDE;
+  min-width: 750px;
 }
 .header{
   height: 70px;
@@ -11,7 +12,6 @@
   background: #333333;
   display: table;
   vertical-align: middle;
-  min-width: 700px;
 }
 .header span{
   display: table-cell;
@@ -48,15 +48,12 @@ article{
   line-height: 1.5;
   margin-bottom: 20px;
   box-shadow: 2px 2px 2px #848484;
-  min-width: 210px;
 }
 aside{
   background: #fff;
-  position: absolute;
-  top:0;
-  right: 0;
+  float: right;
   width: 350px;
-  margin-top: 110px;
+  margin-top: 40px;
   margin-right: 20px;
   padding: 20px;
   box-shadow: 2px 2px 2px #848484;
@@ -71,13 +68,16 @@ aside{
   list-style: none;
 }
 figure{
-  height:115px;
-  width: 150px;
+  height:120px;
+  width: 140px;
   border: 1px solid #aaa;
   text-align: center;
   padding-bottom: 10px;
   margin-bottom: 20px;
   display: inline-block;
+}
+figcaption{
+  padding: 5px;
 }
 table{
   width: 100%;
