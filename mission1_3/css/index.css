@@ -23,7 +23,6 @@ h2{
 }
 .team_logo{
   float: left;
-  display: inline-block;
 }
 .team_name{
   width: 180px;
