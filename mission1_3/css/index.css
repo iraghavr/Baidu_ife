@@ -11,7 +11,7 @@ h2{
   padding: 20px;
   background: #eee;
   border: 1px solid #999;
-  
+  overflow: auto;
   min-width: 600px;
 }
 .left{
