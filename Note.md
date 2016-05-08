@@ -1,4 +1,4 @@
-## Learn JS NoteBook
+﻿## Learn JS NoteBook
 
 ### 基本概念
 
@@ -711,19 +711,21 @@ DOM可以将任何HTML文档描绘成一个由多层节点构成的结构
 </body>
 </html>
 ```
-文档节点是每个文档的根节点，以上文档结点只有一个子节点，即<html>元素，我们称之为文档元素
-文档元素是文档的最外层元素，每个文档只能有一个文档元素,在HTML中始终是<html>
-(1)childNodes属性,nodeType,nodeType(文本节点的值)
+文档节点是每个文档的根节点，以上文档结点只有一个子节点，即<html>元素，我们称
+之为文档元素文档元素是文档的最外层元素，每个文档只能有一个文档元素,在HTML中
+始终是<html>
+
+(1)childNodes属性,nodeName,nodeType(节点类型的值),nodeValue(文本节点的值)
 ```html
 <!DOCTYPE html>
-<html id="a">
+<html>
 <head>
     <meta charset="utf-8">
     <title>Sample Page</title>
 </head>
 <body>
 <script type="text/javascript">
-    var a = document.getElementById("a");
+    var a = document.documentElement;
     for(var i = 0;i< a.childNodes.length;i++){
         alert(a.childNodes[i].nodeName);
     }
@@ -731,6 +733,9 @@ DOM可以将任何HTML文档描绘成一个由多层节点构成的结构
 </body>
 </html>
 ```
+
+浏览器兼容问题：重点，初学者先忽略。
+
 (2)每个节点都有一个parentNode属性，指向文档树的父节点。
    包含在childNodes列表中的每个节点都是同胞兄弟，有相同的parentNode，
    并可以通过previousSibling和nextSibling属性访问同意列表其他结点，
@@ -811,11 +816,11 @@ document.getElementByName
     <title>Sample Page</title>
 </head>
 <body>
-<p >123</p>
+<p>123</p>
 <p>456</p>
 <p>789</p>
 <script type="text/javascript">
-    document.getElementsByTagName("p")[0].write("<strong>"+"fsdfdsfdsfdsf"+"</strong>")
+    document.write("<strong>"+"fsdfdsfdsfdsf"+"</strong>")
 </script>
 </body>
 </html>
@@ -915,3 +920,190 @@ Comment与Text具有相同的基类，因此操作方法相似
 ```
 (12)Attr类型
 元素的特性在DOM中以Attr类型表示，不推荐使用，推荐`setAttribute`,`getAttribute`,`removeAttribute`
+
+### DOM扩展
+
+1.CSS选择符
+
+querySelector()方法：返回匹配的第一个元素
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<p class="a">123</p>
+<p class="a">456</p>
+<p>789</p>
+<script type="text/javascript">
+    var body = document.querySelector("body");
+    var a = document.querySelector(".a");
+    alert(a.nodeName);
+</script>
+</body>
+</html>
+```
+
+querySelectorAll()方法：返回匹配元素的NodeList.
+
+2.预防空格的元素遍历
+
+childElementCount：返回子元素个数，不包含文本节点和注释
+
+firstElementChild：指向第一个子元素，对比于firstChild
+
+lastElementChild, previousElementSibling, nextElementSibling
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<p class="a">123</p>
+<p class="a">456</p>
+<p>789</p>
+<script type="text/javascript">
+    var a = document.body;
+    alert(a.firstElementChild.nodeName);
+</script>
+</body>
+</html>
+```
+
+3.HTML5新增
+
+getElementByClassName()方法
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<div class="a" id="q">
+    aaa
+    <div class="b">
+       b1b1b1
+        <div class="b">
+            b2b2b2
+        </div>
+    </div>
+</div>
+<div class="c">
+    ccccc
+    <div class="b">cbcbcb</div>
+</div>
+<script type="text/javascript">
+   // var a = document.getElementsByClassName("a");
+    //var a = document.getElementsByClassName("a b");
+ //  var a = document.getElementById("q").getElementsByClassName("b");
+ //  alert(a[1].childNodes[0].nodeValue);
+</script>
+</body>
+</html>
+```
+
+焦点管理
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button id="a">Button</button>
+<script type="text/javascript">
+    var a = document.getElementById("a");
+    a.focus();
+    alert(document.activeElement == a);
+</script>
+</body>
+</html>
+```
+
+自定义数据属性
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button id="a" data-age="17">Button1</button>
+<script type="text/javascript">
+   var a = document.getElementById("a");
+   alert(a.dataset.age);
+</script>
+</body>
+</html>
+```
+
+4.插入标记
+**innerHTML**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<p id="a">111</p>
+<script type="text/javascript">
+    var b = document.getElementById("a");
+    b.innerHTML = "<strong>asdasd</strong>";
+</script>
+</body>
+</html>
+```
+**outerHTML**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<p id="a">111</p>
+<script type="text/javascript">
+    var b = document.getElementById("a");
+    alert(b.outerHTML);
+    b.outerHTML = "<div>222</div>"
+</script>
+</body>
+</html>
+```
+5.scrollIntoView()
+
+6.children属性
+只包含元素子节点
+
+7.插入文本
+**innerText** 和 **outerText**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<p>pppp</p>
+<div>divdivdiv</div>
+<script type="text/javascript">
+  var a = document.body;
+  a.innerText = "newText";
+    alert(a.innerText);
+</script>
+</body>
+</html>
+```
