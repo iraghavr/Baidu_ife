@@ -912,7 +912,7 @@ Comment与Text具有相同的基类，因此操作方法相似
         li = document.createElement("li");
         li.appendChild(document.createTextNode("Item"+(i+1)));
         fra.appendChild(li);
-    }
+    }       
     ul.appendChild(fra);
 </script>
 </body>
@@ -978,7 +978,7 @@ lastElementChild, previousElementSibling, nextElementSibling
 3.HTML5新增
 
 getElementByClassName()方法
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -1107,3 +1107,147 @@ getElementByClassName()方法
 </body>
 </html>
 ```
+
+### DOM2和DOM3
+
+1.访问元素的样式
+任何支持style特性的HTML元素在js中都对应一个style属性。对于使用短划线(如`background-image`)的CSS属性，
+必须将其转换成驼峰大小写形式。
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        #a{
+            width:200px;
+            height:200px;
+            background-image: url("");
+        }
+    </style>
+</head>
+<body>
+<div id="a">
+    aaaaaaaaaaa
+</div>
+<script type="text/javascript">
+    var a = document.getElementById("a");
+    a.style.width = "300px";
+    a.style.border = "5px solid black";
+    a.style.backgroundImage = "url('aaa')";
+    alert(a.style.width);
+</script>
+</body>
+</html>
+```
+多数情况下，都可以简单地转换属性名来实现转换，有一个特殊的属性float，由于float是js中的保留字，
+因此不能用作属性名。属性名为cssFloat(Firefox,Safari,Opera,Chrome),IE为styleFloat.
+
+2.元素大小
+(1)偏移量
+offsetHeight:元素在垂直方向上占用的空间大小
+offsetWidth:元素在水平方向上占用的空间大小
+offsetLeft:元素的左外边框至包含元素左内边框之间的像素距离
+offsetTop:元素的上外边框至包含元素的上内边框之间的像素距离
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        #a{
+            width:200px;
+            height:200px;
+            background: blue;
+        }
+        #b{
+            width:200px;
+            height:200px;
+            margin-top: 20px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="a" style="width: 300px">
+    aaaaaaaaaaa
+    <div id="b">
+        bbbbbbbbbbb
+    </div>
+</div>
+<script type="text/javascript">
+    var a = document.getElementById("a");
+    var b = document.getElementById("b");
+    alert(b.offsetTop);
+</script>
+</body>
+</html>
+```
+(2)客户区大小
+clientHeight:元素内容区高度加上上下内边距的高度
+clientWidth:元素内容区宽度加上左右边距的宽度
+
+(3)滚动大小
+scrollLeft  scrollTop
+```javascript
+    document.body.scrollTop = 250;
+    alert(document.body.scrollTop);
+```
+
+### ES6入门
+
+1.ECMAScript和JavaScript的关系
+
+要讲清楚这个问题，需要回顾历史。1996年11月，JavaScript的创造者Netscape公司，
+决定将JavaScript提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。
+次年，ECMA发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，
+并将这种语言称为ECMAScript，这个版本就是1.0版。该标准从一开始就是针对JavaScript语言制定的，
+但是之所以不叫JavaScript，有两个原因。一是商标，Java是Sun公司的商标，根据授权协议，
+只有Netscape公司可以合法地使用JavaScript这个名字，且JavaScript本身也已经被Netscape
+公司注册为商标。二是想体现这门语言的制定者是ECMA，不是Netscape，这样有利于保证这门语
+言的开放性和中立性。因此，ECMAScript和JavaScript的关系是，前者是后者的规格，
+后者是前者的一种实现（另外的ECMAScript方言还有Jscript和ActionScript）。在日常场合，这两个词是可以互换的。
+
+2.let和const命令
+(1)块级作用域
+```javascript
+    function test(){
+        var a = 1;
+        if(a==1){
+            var b = 2;
+            let c = 3;
+        }
+        alert(b);
+        alert(c);
+    }
+    test();
+```
+```javascript
+function test(){
+        for(var i =0;i<3;i++){
+            alert("haha");
+        }
+        alert(i);
+    }
+    test();
+```
+(2)let无变量提升现象
+```javascript
+    function test(){
+        alert(a);
+        alert(b);
+        var a = 1;
+        let b = 2;
+    }
+    test();
+```
+ES6推荐使用let替换var
+
+(3)暂时性死区
+只要块级作用域内存在let命令，它所声明的变量就“绑定”这个区域，不再受外部的影响。
+
+(4)const
+const也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。
+
