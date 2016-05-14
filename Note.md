@@ -216,6 +216,28 @@ sort：根据字符串升序排序
 
 toString,valueOf,join方法
 
+concat,splice,indexOf方法
+
+(3)迭代方法
+filter()方法:对数组每一项运行给定函数，返回true项返回的数组
+```
+ var a = [1,2,3,4,5];
+    var b = a.filter(function(c){
+        if(c>2) return true;
+    })
+    alert(b);
+```
+map()方法:对数组每一项运行给定函数，返回每次函数调用的结果组成的数组
+```js
+    var a = [1,2,3,4,5];
+    var b = a.map(function(c){
+        return c+1;
+    })
+    alert(b);
+```
+every()方法：对数组每一项运行给定函数，如果每一项返回true，则返回true
+some()方法：对数组每一项运行给定函数，如果任意一项返回true，则返回true
+forEach()方法：对数组每一项运行给定函数，无返回值，相当于遍历数组。
 3.Function类型
 
 (1)js里Function就是个对象，因此函数名就是指向函数对象的指针，不会与某个函数绑定
@@ -1200,15 +1222,17 @@ scrollLeft  scrollTop
 
 1.ECMAScript和JavaScript的关系
 
-要讲清楚这个问题，需要回顾历史。1996年11月，JavaScript的创造者Netscape公司，
-决定将JavaScript提交给国际标准化组织ECMA，希望这种语言能够成为国际标准。
-次年，ECMA发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，
-并将这种语言称为ECMAScript，这个版本就是1.0版。该标准从一开始就是针对JavaScript语言制定的，
-但是之所以不叫JavaScript，有两个原因。一是商标，Java是Sun公司的商标，根据授权协议，
-只有Netscape公司可以合法地使用JavaScript这个名字，且JavaScript本身也已经被Netscape
-公司注册为商标。二是想体现这门语言的制定者是ECMA，不是Netscape，这样有利于保证这门语
-言的开放性和中立性。因此，ECMAScript和JavaScript的关系是，前者是后者的规格，
-后者是前者的一种实现（另外的ECMAScript方言还有Jscript和ActionScript）。在日常场合，这两个词是可以互换的。
+1996年11月，JavaScript的创造者Netscape公司，决定将JavaScript提交给国际标准化组织ECMA，
+希望这种语言能够成为国际标准。
+
+次年，ECMA发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，并将这种语
+言称为ECMAScript，这个版本就是1.0版。该标准从一开始就是针对JavaScript语言制定的，但是之
+所以不叫JavaScript，有两个原因。一是商标，Java是Sun公司的商标，根据授权协议，只有Netsca
+pe公司可以合法地使用JavaScript这个名字，且JavaScript本身也已经被Netscape公司注册为商标。
+二是想体现这门语言的制定者是ECMA，不是Netscape，这样有利于保证这门语言的开放性和中立性。
+
+因此，ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现。
+在日常场合，这两个词是可以互换的。
 
 2.let和const命令
 (1)块级作用域
@@ -1243,7 +1267,6 @@ function test(){
     }
     test();
 ```
-ES6推荐使用let替换var
 
 (3)暂时性死区
 只要块级作用域内存在let命令，它所声明的变量就“绑定”这个区域，不再受外部的影响。
@@ -1251,3 +1274,549 @@ ES6推荐使用let替换var
 (4)const
 const也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。
 
+(5)let命令、const命令、class命令声明的全局变量，不属于全局对象的属性。
+
+ES6推荐使用let取代var声明变量
+
+3.变量的解构赋值(模式匹配)
+(1)数组和对象的解构赋值
+```javascript
+    var [a,b,c] = [1,2,3];
+    alert(a);
+```
+```javascript
+    var [a,[b,c],d] = [1,[2,3],4];
+    var {a,b} = {a:1,b:2};
+    let [{a,b},[c,d]] = [{a:1,b:2},[3,4]];
+    function f1(a,b,c){
+        return [a,b,c];
+    }
+    var [i,j,k] = f1(1,2,3);
+    var [a = 1,b] = ["123",2];
+```
+(2)用途
+交换变量的值
+```js
+[x,y] = [y,x];
+```
+函数返回多个值
+```js
+    function f1(a,b,c){
+        return [a,b,c];
+    }
+    var [x,y,z] = f1(1,2,3);
+    alert(x);
+    function f2(a,b){
+        return {name:a,age:b};
+    }
+    var {name,age} = f2("Mike",17);
+    alert(name);
+```
+
+4.字符串的扩展
+(1)for..of遍历
+```js
+    var s ="abcdefg";
+    for(let a of s){
+        alert(a);
+    }
+```
+(2)charAt()方法
+(3)repeat()方法
+
+5.函数的拓展
+(1)形参默认值
+(2)拓展运算符`...`
+将数组转为用参数分隔的参数序列
+```js
+    let a = [1,2,3,4];
+    let b = [1,2,3,4,5,6,7];
+    let c = a.concat([5,6,7]);
+    let d = [...a,5,6,7];
+    alert(b);
+    alert(c);
+    alert(d);
+```
+并推荐使用`...`拷贝数组
+(3)箭头函数
+ES6允许用`=>`定义函数
+```js
+ var f1 = function(v){
+        return v;
+    }
+    var f = (v) => v;
+    alert(f(1));
+    alert(f1(1));
+    var f = (a) => {a = 1;return a};
+        alert(f(4));
+```
+作用：简化回调函数
+```js
+// 正常函数写法
+[1,2,3].map(function (x) {
+  return x * x;
+});
+// 箭头函数写法
+[1,2,3].map(x => x * x);
+```
+匿名立即执行函数推荐写成箭头函数的形式。
+```js
+(() => {
+  alert('Hello!');
+})();
+```
+
+6.Class
+(1)对比于ES5之前创建类的方法，更加简单易懂，
+ES6推荐使用Class取代`prototype`的操作
+```javascript
+    class People{
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        sayHello(){
+            alert("Hello");
+        }
+        toString(){
+            return "名字是："+this.name+","+"年龄是："+this.age;
+        }
+    }
+    var a = new People(1,1);
+    a.sayHello();
+```
+(2)继承,ES6推荐使用extends语法糖取代原型链等复杂的方式
+```js
+    class People{
+        constructor(name,age){
+            alert("父类构造！")
+            this.name = name;
+            this.age = age;
+        }
+        sayHello(){
+            alert("Hello");
+        }
+        toString(){
+            return "名字是："+this.name+","+"年龄是："+this.age;
+        }
+    }
+    class Student extends People{
+        constructor(name,age,stuId){
+            super(name,age);
+            this.stuId =stuId;
+            alert("子类构造！");
+        }
+    }
+    var a = new Student("Mike",19,20155555);
+    alert(a.stuId);
+```
+
+### 事件
+1.事件流
+(1)时间冒泡
+div -> body -> html -> Document
+2.事件处理程序
+事件就是用户或浏览器自身执行的某种动作。诸如click,load等，都是事件的名字。
+而响应某个事件的函数就叫做事件处理程序。事件处理程序的名字以"on"开头，因此click
+时间的处理程序就是onclick，load事件的处理程序就是onload。
+(1)HTML事件处理程序(不推荐)
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button onclick="f1()">Button</button>
+<script type="text/javascript">
+    function f1(){
+        alert('点击事件！')
+    }
+</script>
+</body>
+</html>
+```
+(2)DOM0级事件处理程序
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<input type="button" id="myBtn" value="Button"/>
+<script type="text/javascript">
+    var a= document.getElementById("myBtn");
+    a.onclick = function(){
+        alert(this.id);
+    }
+    a.onclick = null; //删除事件处理程序
+</script>
+</body>
+</html>
+```
+(3)DOM2级事件处理程序
+DOM2级事件包括三个阶段，事件捕获阶段，处于目标阶段和事件冒泡阶段。
+DOM2级事件定义了两个方法，用于处理指定和删除事件处理程序的操作：`addEventListener()`和
+`removeEventListener`
+```js
+var a= document.getElementById("myBtn");
+    a.addEventListener("click",function(){
+        alert(this.id);
+    })
+```
+removeEventListener无法移除匿名函数
+```js
+    var a= document.getElementById("myBtn");
+    var f1 = function(){
+        alert(this.id);
+    }
+    a.addEventListener("click",f1);
+```
+(4)IE事件处理程序(支持的只有IE和Opera)
+IE实现了与DOM中类似的两个方法，`attachEvent()`和`detachEvent`.这两个方法接受相同
+的两个参数。
+
+3.事件对象
+(1)DOM中的事件对象
+在触发DOM上的某个事件时，会产生一个事件对象`event`，这个对象中包含着所有与时间有关的信息，
+包括时间的元素，事件的类型以及其他与特定事件相关的信息。而`this`始终等于处理事件的那个元素。
+(2)IE中的事件对象
+
+4.事件类型
+(1)UI事件：当用户与页面上的元素交互时触发
+(2)焦点事件：当元素获得或失去焦点
+(3)鼠标事件：当用户通过鼠标在页面上执行操作时触发
+(4)滚轮事件：当使用鼠标滚轮时触发
+(5)文本事件：当在文档中输入文本时触发
+(6)键盘事件：当用户通过键盘在页面上执行操作时触发
+(7)合成事件：当为IME(输入法编辑器)输入字符时触发
+(8)变动事件：当底层DOM结构发生变化时触发
+除了这几类事件，HTML5也新增定义了一组事件。
+
+(1)UI事件
+UI事件指的是那些不一定与用户操作有关的时间。
+load：当页面完全加载后在window上面除法触发,window对象上发生的
+```
+window.onload = function(){
+        var a = document.getElementById("myBtn");
+        alert(a);
+    };
+```
+resize:当窗口或框架的大小发生变化时在window或框架上面触发
+```js
+ window.addEventListener("resize", function () {
+        alert("Resize");
+    })
+```
+scroll:当页面滚动位置发生变化时触发
+
+(2)焦点事件：
+blur:当元素失去焦点时触发，该事件不会冒泡
+focus:当元素获得焦点时触发，该事件不会冒泡
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+姓名：<input id="name" type="text"/>
+学号：<input id="stuId" type="text"/>
+<script>
+    document.getElementById("name").onfocus = function () {
+        alert("focus");
+    }
+    document.getElementById("name").onblur = function () {
+        alert("Blur");
+    }
+</script>
+</body>
+</html>
+```
+```html
+document.getElementById("name").onblur = function () {
+        if(this.value ==""){
+            alert("不能为空！");
+            document.getElementById("name").focus();
+        }
+    }
+```
+(3)鼠标与滚轮事件
+click：单击主鼠标(左键)时触发
+dblclick:双击主鼠标(左键)时触发
+mouseover:鼠标移入触发
+mouseout:鼠标移出触发
+mousedown:用户按下任意鼠标按钮时触发
+```js
+document.getElementById("name").onmousedown = function(){
+        alert(event.button);
+    }
+```
+获取鼠标在视口位置`event.clientX`,`event.clientY`
+获取鼠标在页面位置`event.pageX`,`event.pageY`
+
+mousewheel:当用户通过鼠标滚轮与页面交互，在垂直方向上滚动页面时触发
+wheelDelta是120的倍数
+```js
+ document.body.onmousewheel = function () {
+        alert(event.wheelDelta);
+    }
+```
+(4)键盘与文本事件
+keydown:当用户按下键盘上的任意键时触发,按住不放会重复触发此事件
+keypress:当用户按下键盘上的字符键时触发,按住不放会重复触发此事件
+keyup:当用户释放键盘上的按键时触发
+textInput:在文本插入文本框前触发此事件(DOM3级事件),输入的字符`event.data`
+当用户按了键盘上的字符集键时，首先会触发keydown事件，紧接着是keypress，最后是keyup事件
+键码：`event.keyCode`
+(5)HTML5事件
+contextmenu事件：通过右键调出上下文菜单
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<div id="myDiv" style="width: 800px;height: 800px;background-color: #ccc">右键</div>
+<ul id="myMenu" style="width:50px;position: absolute;visibility: hidden;background-color: red;z-index: 12">
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+</ul>
+<script>
+    window.onload = function(){
+        var div = document.getElementById("myDiv");
+        div.oncontextmenu = function () {
+            event.preventDefault(event);
+            var menu = document.getElementById("myMenu");
+            menu.style.left = event.clientX + "px";
+            menu.style.top = event.clientY + "px";
+            menu.style.visibility = "visible";
+        };
+        document.addEventListener("click",function(){
+            document.getElementById("myMenu").style.visibility = "hidden";
+        });
+    }
+</script>
+</body>
+</html>
+```
+(2)HTML5拖放事件
+
+5.模拟事件
+UIEvents:一般化UI事件
+MouseEvents:一般化鼠标事件
+MutationEvents:一般化DOM变动事件
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<div id="myDiv" style="width: 800px;height: 800px;background-color: #ccc">右键</div>
+<script>
+    var a = document.getElementById("myDiv");
+    a.onclick = function(){
+        alert("click");
+    }
+    var event = document.createEvent("MouseEvents");
+    event.initEvent("click");
+    a.dispatchEvent(event);
+</script>
+</body>
+</html>
+```
+
+### 表单脚本
+1.表单独有的属性和方法
+(1)action:接受请求的URL
+(2)name:表单的名称
+(3)reset():将所有表单域重置为默认值
+(4)submit():提交表单
+2.提交表单和阻止表单提交
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<form id="myForm" action="index.html">
+    <input type="submit" value="提交"/>
+</form>
+<script>
+    document.getElementById("myForm").onsubmit = function(){
+       event.preventDefault(event);
+        // return false;
+    }
+</script>
+</body>
+</html>
+```
+3.表单重置和阻止表单重置`reset`
+4.表单字段
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<form id="myForm" action="index.html">
+    姓名：<input type="text"/>
+    性别：<input type="radio" name="sex"/>男 <input type="radio" name="sex"/>女
+    <input type="submit" value="提交"/>
+</form>
+<script>
+    var myForm = document.getElementById("myForm");
+    alert(myForm.elements[3].nodeName);
+</script>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<form id="myForm" action="index.html">
+    姓名：<input type="text" name="myName"/>
+    性别：<input type="radio" name="sex"/>男 <input type="radio" name="sex"/>女
+    <input type="submit" value="提交"/>
+</form>
+<script>
+    var myForm = document.getElementById("myForm");
+    alert(myForm.elements["myName"].nodeName);
+</script>
+</body>
+</html>
+```
+5.表单字段属性
+(1)disable:布尔值，表示是否被禁用
+(2)form:指向当前所在表单
+(3)name:当前字段名称
+(4)readOnly:布尔值,当前字段是否只读
+(5)type:当前字段的类型(checkbox，radio等)
+(6)value:当前字段的value值
+
+6.必填字段`required`
+
+7.选择框脚本
+选择框是通过`<select>`和`<option>`元素创建的
+
+(1)选择框的属性和方法
+add(newOption,relOption)
+multiple:布尔值，是否允许多项选择
+options:所有options的集合
+remove(index):移除指定位置选项
+selectedIndex:选中索引，没有返回-1
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<form id="myForm" action="index.html">
+    <select name="city" id="city" >
+        <option value="Harbin">哈尔滨</option>
+        <option value="Beijing" selected>北京</option>
+    </select>
+    <input type="submit" value="提交"/>
+</form>
+<script>
+    var myForm = document.getElementById("myForm");
+    var a = myForm.elements[0];
+    alert(a.selectedIndex);
+</script>
+</body>
+</html>
+```
+(2)option元素属性
+index:所在索引
+selected:布尔值,是否被选中
+text:选项的文本
+value:选项的value值
+
+### 定时器
+1.理解js的单线程`setTimeout`和`setInterval`
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button id="myBtn">Button</button>
+<script>
+    var a = document.getElementById("myBtn");
+    a.onclick = function(){
+        setTimeout(function(){
+            alert("定时器");
+        },1000);
+    };
+</script>
+</body>
+</html>
+```
+2.重复的定时器
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button id="myBtn">Button</button>
+<script>
+    var a = document.getElementById("myBtn");
+    a.onclick = function(){
+        setTimeout(function(){
+            alert("定时器");
+            setTimeout(arguments.callee,1000);
+        },1000);
+    };
+</script>
+</body>
+</html>
+```
+3.定时器制作动画
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<button id="myBtn" style="width: 50px;height: 50px;background-color: red;border: none">Button</button>
+<script>
+    var a = document.getElementById("myBtn");
+    a.onmouseover = function () {
+            setTimeout(function () {
+                if (parseInt(a.style.width) < 900) {
+                    a.style.width = parseInt(a.style.width) + 10 + "px";
+                    setTimeout(arguments.callee, 20);
+                }
+            }, 20);
+    };
+</script>
+</body>
+</html>
+```
