@@ -1499,7 +1499,7 @@ IE实现了与DOM中类似的两个方法，`attachEvent()`和`detachEvent`.这�
 (1)UI事件
 UI事件指的是那些不一定与用户操作有关的时间。
 load：当页面完全加载后在window上面除法触发,window对象上发生的
-```
+```js
 window.onload = function(){
         var a = document.getElementById("myBtn");
         alert(a);
@@ -1817,6 +1817,170 @@ value:选项的value值
             }, 20);
     };
 </script>
+</body>
+</html>
+```
+
+### 拖放
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+</head>
+<body>
+<div id="myDiv" class="draggable" style="width: 100px;height: 100px;position: absolute;background-color: red"></div>
+<script>
+    var DragDrop = function DragDrop(){
+        var dragging = null;
+        var diffX = 0;
+        var diffY = 0;
+        function handleEvent(event){
+            var target = event.target;
+            switch (event.type){
+                case "mousedown":
+                    if(target.className.indexOf("draggable")>-1){
+                        dragging = target;
+                        diffX = event.clientX - target.offsetLeft;
+                        diffY = event.clientY - target.offsetTop;
+                    }
+                    break;
+                case "mousemove":
+                    if(dragging!=null){
+                        dragging.style.left = (event.clientX-diffX) + "px";
+                        dragging.style.top = (event.clientY-diffY) + "px";
+                    }
+                    break;
+                case "mouseup":
+                    dragging = null;
+                    break;
+            }
+        };
+        return{
+            enable:function (){
+                document.addEventListener("mousedown",handleEvent);
+                document.addEventListener("mousemove",handleEvent);
+                document.addEventListener("mouseup",handleEvent);
+            },
+            disable:function(){
+                document.removeEventListener("mousedown",handleEvent);
+                document.removeEventListener("mousemove",handleEvent);
+                document.removeEventListener("mouseup",handleEvent);
+            }
+        }
+    };
+    DragDrop().enable();
+</script>
+</body>
+</html>
+```
+
+### CSS3动画
+1.rotate()
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        .a{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        .a:hover{
+            -ms-transform: rotate(30deg);		/* IE 9 */
+            -webkit-transform: rotate(30deg);	/* Safari and Chrome */
+            -o-transform: rotate(30deg);		/* Opera */
+            -moz-transform: rotate(30deg);		/* Firefox */
+        }
+    </style>
+</head>
+<body>
+<div class="a"></div>
+</body>
+</html>
+```
+```js
+  var a = document.getElementsByClassName("a")[0];
+  a.onclick = function(){
+      a.style.width = "200px";
+      a.style.webkitTransition = "width 2s";
+  }
+```
+2.`translate(50px,100px)`:左侧移动50px,顶部移动100px
+3.`scale(2,4)`:把宽度转换为原始尺寸的2倍，把高度转换为原始高度的4倍。
+4.`skew(30deg,20deg)` 围绕X轴把元素翻转30度，围绕Y轴翻转20度。
+5.`rotateX()` 元素围绕其X轴以给定的度数进行旋转。`-webkit-transform: rotateX(90deg);`
+6.过渡`transition`
+7.`@keyframes`定义动画
+用百分比来规定变化发生的时间
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        @-webkit-keyframes myfirst
+        {
+            0%   {background: red;}
+            25%  {background: yellow;}
+            50%  {background: blue;}
+            100% {background: green;}
+        }
+        .a{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        .a:hover{
+            -webkit-animation: myfirst 5s;
+            -webkit-animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+<center><div class="a"></div>
+</center>
+</body>
+</html>
+```
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        @-webkit-keyframes myfirst /* Safari 和 Chrome */
+        {
+            0%   {background: red; left:0px; top:0px;}
+            25%  {background: yellow; left:200px; top:0px;}
+            50%  {background: blue; left:200px; top:200px;}
+            75%  {background: green; left:0px; top:200px;}
+            100% {background: red; left:0px; top:0px;}
+        }
+        .a{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        .a:hover{
+            -webkit-animation: myfirst 5s;
+            /*播放次数*/
+            -webkit-animation-iteration-count: infinite;
+            /*第二次是否逆序播放*/
+            -webkit-animation-direction:alternate;
+        }
+    </style>
+</head>
+<body>
+<center><div class="a"></div>
+</center>
 </body>
 </html>
 ```
