@@ -220,7 +220,7 @@ concat,splice,indexOf方法
 
 (3)迭代方法
 filter()方法:对数组每一项运行给定函数，返回true项返回的数组
-```
+```js
  var a = [1,2,3,4,5];
     var b = a.filter(function(c){
         if(c>2) return true;
@@ -303,7 +303,7 @@ var s1 = "Dumplings";
 var s2 = s1.substring(2);
 ```
 (2)引用类型与基本包装类型区别
-```
+```js
  var people = "sd";
  people.name = "Jack";
  alert(people.name);
@@ -1413,7 +1413,7 @@ ES6推荐使用Class取代`prototype`的操作
 
 ### 事件
 1.事件流
-(1)时间冒泡
+(1)事件冒泡
 div -> body -> html -> Document
 2.事件处理程序
 事件就是用户或浏览器自身执行的某种动作。诸如click,load等，都是事件的名字。
@@ -1481,8 +1481,8 @@ IE实现了与DOM中类似的两个方法，`attachEvent()`和`detachEvent`.这�
 
 3.事件对象
 (1)DOM中的事件对象
-在触发DOM上的某个事件时，会产生一个事件对象`event`，这个对象中包含着所有与时间有关的信息，
-包括时间的元素，事件的类型以及其他与特定事件相关的信息。而`this`始终等于处理事件的那个元素。
+在触发DOM上的某个事件时，会产生一个事件对象`event`，这个对象中包含着所有与事件有关的信息，
+包括事件的元素，事件的类型以及其他与特定事件相关的信息。而`this`始终等于处理事件的那个元素。
 (2)IE中的事件对象
 
 4.事件类型
@@ -1497,7 +1497,7 @@ IE实现了与DOM中类似的两个方法，`attachEvent()`和`detachEvent`.这�
 除了这几类事件，HTML5也新增定义了一组事件。
 
 (1)UI事件
-UI事件指的是那些不一定与用户操作有关的时间。
+UI事件指的是那些不一定与用户操作有关的事件。
 load：当页面完全加载后在window上面除法触发,window对象上发生的
 ```js
 window.onload = function(){
