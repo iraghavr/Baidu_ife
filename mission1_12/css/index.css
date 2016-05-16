@@ -1,8 +1,14 @@
-*{
-    transition: 1s;
-}
 body{
     font-family: "微软雅黑";
+}
+
+@keyframes init {
+    0% {
+        left: -100%
+    }
+    100% {
+        left: 0%;
+    }
 }
 
 @keyframes out {
@@ -23,6 +29,7 @@ body{
     }
 }
 table{
+    transition: 1s;
     width: 300px;
 }
 th{
@@ -65,7 +72,8 @@ input:focus{
     height: 100%;
     position: absolute;
     left: 0;
-    right: 0;
+    right:0;
+    animation: 0.5s init ease;
 }
 .sliders li {
     position: absolute;
@@ -75,15 +83,15 @@ input:focus{
     height: 100%;
     animation: 0.5s out ease;
 }
-#slider-1 {
+#slider_1 {
     background-color: red;
 }
 
-#slider-2 {
+#slider_2 {
     background-color: green;
 }
 
-#slider-3 {
+#slider_3 {
     background-color: blue;
 }
 .sliders li:target {
