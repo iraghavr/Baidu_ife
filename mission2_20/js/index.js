@@ -5,7 +5,15 @@ window.onload = function () {
         var queue = document.getElementById("queue");
         queue.innerHTML = "";
         for (let i = 0; i < allItems.length; i++) {
-            queue.innerHTML += "<div class='item'>" + allItems[i] + "</div>"
+            queue.innerHTML += "<div class='item' style='animation: left_in 1s'>" + allItems[i] + "</div>"
+        }
+    }
+
+    function viewRefresh_right() {
+        var queue = document.getElementById("queue");
+        queue.innerHTML = "";
+        for (let i = 0; i < allItems.length; i++) {
+            queue.innerHTML += "<div class='item' style='animation: right_in 1s'>" + allItems[i] + "</div>"
         }
     }
 
@@ -32,12 +40,12 @@ window.onload = function () {
             }
         });
         allItems = [...allItems, ...str];
-        viewRefresh();
+        viewRefresh_right();
     };
 
     document.getElementById("left_out").onclick = function () {
         allItems.shift();
-        viewRefresh();
+        viewRefresh_right();
     };
 
     document.getElementById("right_out").onclick = function () {

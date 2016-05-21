@@ -9,6 +9,7 @@ textarea{
     border: 1px solid #ccc;
     resize: none;
 }
+
 button{
     height: 25px;
     background: #fff;
@@ -30,6 +31,24 @@ button:hover{
     height: 45px;
     margin: 10px 8px 0px 0px;
     background: red;
+    position: relative;
+    animation: left_in 1s;
+}
+@keyframes left_in{
+    0%{
+        left: -600px;
+    }
+    100%{
+        left: 0px;
+    }
+}
+@keyframes right_in{
+    0%{
+        right: -600px;
+    }
+    100%{
+        right: 0px;
+    }
 }
 #queue{
     float: left;
