@@ -1,6 +1,6 @@
 ﻿## Learn JS NoteBook
 
-### 基本概念 TTT
+### 基本概念
 
 1.变量：
 
