@@ -806,7 +806,7 @@ document.getElementById
 document.getElementByTagName
 namedItem
 document.getElementByName
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -917,7 +917,7 @@ parentNode = Document或Element
 Comment与Text具有相同的基类，因此操作方法相似
 (10)DocumentType类型：包含着与文档doctype有关的信息
 (11)DocumentFragment类型：文档片段
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -934,7 +934,7 @@ Comment与Text具有相同的基类，因此操作方法相似
         li = document.createElement("li");
         li.appendChild(document.createTextNode("Item"+(i+1)));
         fra.appendChild(li);
-    }       
+    }
     ul.appendChild(fra);
 </script>
 </body>
@@ -1820,7 +1820,41 @@ value:选项的value值
 </body>
 </html>
 ```
-
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample Page</title>
+    <style>
+        #a {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="a">
+    1
+</div>
+<script type="text/javascript">
+    var a = document.getElementById("a");
+    var width = parseInt(getComputedStyle(a,null)['width'].split('px')[0]);
+    a.onclick = function(){
+        var timer = setInterval(function(){
+            width +=10;
+            a.style.width = width+"px";
+            alert(a.style.width);
+            if(a.style.width=="1000px"){
+                clearInterval(timer);
+            }
+        },10);
+    }
+</script>
+</body>
+</html>
+```
 ### 拖放
 ```html
 <!DOCTYPE html>
