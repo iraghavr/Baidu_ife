@@ -3,6 +3,7 @@
 ### About
 
 我的团队：<a>http://ife.baidu.com/group/profile?groupId=2852</a>
+最终任务已移至单独仓库：<a>https://github.com/yuanguangxin/Questionnaire</a>
 
 还是决定从0基础开始做任务，通过这第一个最简单的连CSS都没有的任务，复习了基础知识，看了大家
 的代码，知道了许多之前不知道的标签，发现大家每个人写的都不一样，都有自己的特色，或许这就是
