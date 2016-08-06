@@ -1,0 +1,386 @@
+﻿<html>
+<head>
+	<title>牵手</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Educator Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="applijegleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- Custom Theme files -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<!--webfonts-->
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One|Lily+Script+One|Raleway:400,300,500,600,200,700' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="images/tit.jpg"/>
+	<!--//webfonts-->
+</head>
+<body>
+<!--start-home-->
+<div class="head" id="home">
+	<div class="header-top">
+		<div class="container">
+			<p class="col-md-6 location"><i class="glyphicon glyphicon-map-marker"></i>17C, Hold Hands</p>
+			<p class="col-md-6 phone"><i class="glyphicon glyphicon-earphone"></i>Phone:<span class="seprat"> 18324601102</span></p>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="main">
+			<div class="wht-head">
+				<div class="logo">
+					<a href="index.html" ><h1><i class="glyphicon glyphicon-education"></i>牵手</h1></a>
+				</div>
+				<!--top-nav-->
+				<span class="menu"> </span>
+				<div class="top-menu">
+					<nav>
+						<ul class="cl-effect-16">
+
+							<li><a class="active scroll" href="#home" data-hover="主页">主页</a></li>
+							<li><a class="scroll" href="#service" data-hover="取快递">取快递</a></li>
+							<li><a class="scroll" href="#teach" data-hover="找学霸">找学霸</a></li>
+							<li><a class="scroll" href="#about" data-hover="代课">代课</a></li>
+							<li><a class="scroll" href="#gallery" data-hover="占座">占座</a></li>
+							<li><a class="scroll" href="#contact" data-hover="联系我们">联系我们</a></li>
+							<div class="clearfix"></div>
+						</ul>
+					</nav>
+				</div>
+				<!-- script-for-menu -->
+				<script>
+					$( "span.menu" ).click(function() {
+						$( ".top-menu" ).slideToggle( "slow", function() {
+							// Animation complete.
+						});
+					});
+				</script>
+				<!-- script-for-menu -->
+				<div class="clearfix"></div>
+			</div>
+			<div class="banner">
+				<div class="banner-slider">
+					<div id="top" class="callbacks_container">
+						<ul class="rslides" id="slider3">
+							<li>
+								<div class="banner-info">
+									<h3>懒得取快递...</h3>
+									<p>你是否想过,你没有时间取快递的时候总有人帮你捎上，<lable> 你有时间也顺便去帮别人捎一下快递，</lable> 牵手平台为您提供这样一群人...</p>
+								</div>
+							</li>
+							<li>
+								<div class="banner-info">
+									<h3>学习不会... </h3>
+									<p>老师上课内容听不懂？<lable> <br/>课程太难习题不会做？</lable>牵手平台，一个永远有学霸的平台...</p>
+								</div>
+							<li>
+								<div class="banner-info">
+									<h3>不想上课...</h3>
+									<p>老师上课枯燥乏味？<lable>课程无用却又不得不上？考期复习无法上课又怕点名</lable> 牵手网为您提供一个互帮互助找寻自己爱好的平台...</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--banner-slide-->
+			<script src="js/responsiveslides.min.js"></script>
+			<script>
+				// You can also use "$(window).load(function() {"
+				$(function () {
+					// Slideshow 4
+					$("#slider3").responsiveSlides({
+						auto: true,
+						pager:true,
+						nav:false,
+						speed: 500,
+						namespace: "callbacks",
+						before: function () {
+							$('.events').append("<li>before event fired.</li>");
+						},
+						after: function () {
+							$('.events').append("<li>after event fired.</li>");
+						}
+					});
+
+				});
+			</script>
+
+			<!--//banner-slide-->
+			<div class="clearfix"></div>
+			<!--end-banner-->
+			<!--start-services-->
+			<div class="services" id="service">
+				<h3 class="tittle two">快递</h3>
+				<div class="serve-grids">
+					<div class="col-md-3 service-grid">
+						<div class="icon">
+							<i class="glyphicon glyphicon-time"></i>
+						</div>
+						<h5>我要发布信息</h5>
+						<p></p>
+					</div>
+					<div class="col-md-3 service-grid">
+						<div class="icon">
+							<i class="glyphicon glyphicon-book"></i>
+						</div>
+						<h5>我要查看信息</h5>
+						<p></p>
+					</div>
+					<div class="col-md-3 service-grid">
+						<div class="icon">
+							<i class="glyphicon glyphicon-send"></i>
+						</div>
+						<h5>我要核对信息</h5>
+						<p></p>
+					</div>
+					<div class="col-md-3 service-grid">
+						<div class="icon">
+							<i class="glyphicon glyphicon-gift"></i>
+						</div>
+						<h5>我要管理信息</h5>
+						<p></p>
+					</div>
+
+					<div class="clearfix"></div>
+
+				</div>
+			</div>
+			<!--//end-services-->
+			<!--start-teachers-->
+			<div class="teachers" id="teach">
+				<h3 class="tittle">找学霸</h3>
+				<div class="teachers-grids">
+					<ul class="ch-grid">
+						<li>
+							<div class="ch-item ch-img-1">
+								<div class="ch-info-wrap">
+									<div class="ch-info">
+										<div class="ch-info-front ch-img-1"></div>
+										<div class="ch-info-back">
+											<h3>我是学霸</h3>
+											<p>没错,我就是别人家的孩子 <a href="#">我要去拯救世界</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="ch-item ch-img-2">
+								<div class="ch-info-wrap">
+									<div class="ch-info">
+										<div class="ch-info-front ch-img-2"></div>
+										<div class="ch-info-back">
+											<h3>我是学渣</h3>
+											<p> 呃..<a href="#">我要找学霸</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="ch-item ch-img-3">
+								<div class="ch-info-wrap">
+									<div class="ch-info">
+										<div class="ch-info-front ch-img-3"></div>
+										<div class="ch-info-back">
+											<h3>我是班长</h3>
+											<p>帮助同学是我的天职 <a href="#">发布求助信息</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--//end-teachers-->
+			<!--start-about-->
+			<div class="about" id="about">
+				<h3 class="tittle two">代课</h3>
+				<div class="ab-top">
+					<div class="col-md-7 ab-left">
+						<h3 class="sub-text">暂未开放...</h3>
+						<p>该模块社会舆论较大，对大学生的成长是否利大于弊，和处于对老师的尊重，该模块正在商议中，如有任何建议可与我们联系。</p>
+						<p class="para">敬请期待...</p>
+					</div>
+					<div class="col-md-5 ab-img">
+						<div id="top" class="callbacks_container">
+							<ul class="rslides" id="slider4">
+								<li>  <img src="images/img1.jpg" alt=" " title="ab" /></li>
+								<li>  <img src="images/img2.jpg" alt=" " title="ab" /></li>
+								<li>  <img src="images/img3.jpg" alt=" " title="ab" /></li>
+							</ul>
+						</div>
+						<script src="js/responsiveslides.min.js"></script>
+						<script>
+							// You can also use "$(window).load(function() {"
+							$(function () {
+								// Slideshow 4
+								$("#slider4").responsiveSlides({
+									auto: true,
+									pager:false,
+									nav: true,
+									speed: 500,
+									namespace: "callbacks",
+									before: function () {
+										$('.events').append("<li>before event fired.</li>");
+									},
+									after: function () {
+										$('.events').append("<li>after event fired.</li>");
+									}
+								});
+
+							});
+						</script>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!--start-gallery-->
+			<div class="gallery" id="gallery">
+				<h3 class="tittle">占座</h3>
+				<div class="gallery-bottom">
+					<div class="view view-fifth">
+						<a href="images/hand_1.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_1.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>汇文楼占座</h2>
+								<p>The study certainly is not the life complete. But, since continually life part of - studies also is unable to conquer, what but also can make?</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+					<div class="view view-fifth">
+						<a href="images/hand_2.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_2.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>1号楼占座</h2>
+								<p>The study certainly is not the life complete. But, since continually life part of - studies also is unable to conquer, what but also can make?</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+					<div class="view view-fifth">
+						<a href="images/hand_3.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_3.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>2号楼占座</h2>
+								<p>The study certainly is not the life complete. But, since continually life part of - studies also is unable to conquer, what but also can make?</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+					<div class="view view-fifth">
+						<a href="images/hand_4.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_4.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>3号楼占座</h2>
+								<p>The study certainly is not the life complete. But, since continually life part of - studies also is unable to conquer, what but also can make?</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+					<div class="view view-fifth">
+						<a href="images/hand_5.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_5.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>食堂占座</h2>
+								<p>你个吃货！</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+					<div class="view view-fifth">
+						<a href="images/hand_6.jpg" class="b-link-stripe b-animate-go  swipebox" title="Image Title"><img src="images/hand_6.jpg" alt="" class="img-responsive">
+							<div class="mask">
+								<h2>其他代排队</h2>
+								<p>The time is passing...</p>
+								<a href="#" class="info">进入</a>
+							</div>
+						</a>
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!--contact-->
+			<div class="contact" id="contact">
+				<h3 class="tittle two">联系我们</h3>
+				<div class="contact-top">
+					<div class="col-md-8 contact-top-right">
+						<form>
+							<input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+							<input type="text" class="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}">
+							<textarea value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+							<div class="sub-button">
+								<input type="submit" value="SEND">
+							</div>
+						</form>
+					</div>
+					<div class="col-md-4 contact-top-left">
+						<div class="contact-top-one">
+							<h4>Address:</h4>
+							<p>黑龙江大学C区
+								<span>17栋(南)</span>
+								231寝室
+							</p>
+						</div>
+						<div class="contact-top-one">
+							<h4>Phone:</h4>
+							<p>Telephone: 18324601102
+								<span>QQ: 274841922</span>
+							</p>
+						</div>
+						<div class="contact-top-one">
+							<h4>E-mail:</h4>
+							<p><a href="#">274841922@qq.com</a></p>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!--contact-->
+			<div class="copy">
+				<p>Copyright &copy; 2015<a target="_blank" href="#"> </a></p>
+			</div>
+			<!--footer-->
+
+
+		</div>
+		<link rel="stylesheet" href="css/swipebox.css">
+		<script src="js/jquery.swipebox.min.js"></script>
+		<script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+		</script>
+		<!--//gallery-->
+
+	</div>
+</div>
+
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!--start-smoth-scrolling-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*
+		 var defaults = {
+		 containerID: 'toTop', // fading element id
+		 containerHoverID: 'toTopHover', // fading element hover id
+		 scrollSpeed: 1200,
+		 easingType: 'linear'
+		 };
+		 */
+
+		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	});
+</script>
+<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+</body>
+</html>

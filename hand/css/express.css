@@ -1,0 +1,76 @@
+html, body{
+	  font-family: 'Raleway', sans-serif;
+	font-size: 100%;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#18c9d2+0,18699b+32,09415c+45,09415c+45,08364e+70,08364e+71,07304e+74,07304e+88,07304e+88,062b46+100,153854+100,153854+100,062b46+100 */
+background: #18c9d2; /* Old browsers */
+background: -moz-linear-gradient(top,  #18c9d2 0%, #18699b 32%, #09415c 45%, #09415c 45%, #08364e 70%, #08364e 71%, #07304e 74%, #07304e 88%, #07304e 88%, #062b46 100%, #153854 100%, #153854 100%, #062b46 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#18c9d2), color-stop(32%,#18699b), color-stop(45%,#09415c), color-stop(45%,#09415c), color-stop(70%,#08364e), color-stop(71%,#08364e), color-stop(74%,#07304e), color-stop(88%,#07304e), color-stop(88%,#07304e), color-stop(100%,#062b46), color-stop(100%,#153854), color-stop(100%,#153854), color-stop(100%,#062b46)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #18c9d2 0%,#18699b 32%,#09415c 45%,#09415c 45%,#08364e 70%,#08364e 71%,#07304e 74%,#07304e 88%,#07304e 88%,#062b46 100%,#153854 100%,#153854 100%,#062b46 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #18c9d2 0%,#18699b 32%,#09415c 45%,#09415c 45%,#08364e 70%,#08364e 71%,#07304e 74%,#07304e 88%,#07304e 88%,#062b46 100%,#153854 100%,#153854 100%,#062b46 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #18c9d2 0%,#18699b 32%,#09415c 45%,#09415c 45%,#08364e 70%,#08364e 71%,#07304e 74%,#07304e 88%,#07304e 88%,#062b46 100%,#153854 100%,#153854 100%,#062b46 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #18c9d2 0%,#18699b 32%,#09415c 45%,#09415c 45%,#08364e 70%,#08364e 71%,#07304e 74%,#07304e 88%,#07304e 88%,#062b46 100%,#153854 100%,#153854 100%,#062b46 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#18c9d2', endColorstr='#062b46',GradientType=0 ); /* IE6-9 */
+
+
+}
+body a {
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+a:hover{
+ text-decoration:none;
+}
+.main {
+  margin-bottom:4em;
+}
+.wht-head {
+  background-color: #fff;
+  padding: 0.7em 1em;
+}
+.logo {
+  float: left;
+}
+.top-menu {
+  float: right;
+  margin-top: 0.8em;
+}
+.top-menu ul{
+	padding:0;
+}
+.top-menu ul li{
+ display: inline-block;
+  color: #fff;
+  font-weight: 900;
+  vertical-align: top;
+  border-right: 2px dotted #18C9D2;
+}
+/* Effect 16: fall down */
+.cl-effect-16 a {
+	color: #6f8686;
+	text-shadow: 0 0 1px rgba(111,134,134,0.3);
+}
+.cl-effect-16 a::before {
+	color:#18C9D2;
+	content: attr(data-hover);
+	position: absolute;
+	opacity: 0;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	-webkit-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	-moz-transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	transform: scale(1.1) translateX(10px) translateY(-10px) rotate(4deg);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	pointer-events: none;
+}
+
+.cl-effect-16 a:hover::before,
+.cl-effect-16 a:focus::before {
+	-webkit-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	-moz-transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	transform: scale(1) translateX(0px) translateY(0px) rotate(0deg);
+	opacity: 1;
+}
